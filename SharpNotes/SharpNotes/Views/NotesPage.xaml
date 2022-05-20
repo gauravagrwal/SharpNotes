@@ -13,6 +13,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding CreateNoteCommand}" Text="Add" />
+        <ToolbarItem Command="{Binding AboutCommand}" Text="About" />
         <ToolbarItem Command="{Binding LogOutCommand}" Text="Log Out" />
     </ContentPage.ToolbarItems>
 

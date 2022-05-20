@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SharpNotes.Views.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Sharp Notes">
+
+    <StackLayout Margin="40">
+
+        <StackLayout VerticalOptions="Start" />
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label
+                x:Name="AppName"
+                FontSize="Title"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="AppVersion"
+                FontSize="Subtitle"
+                HorizontalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout VerticalOptions="End" />
+
+    </StackLayout>
+
+</ContentPage>

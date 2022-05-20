@@ -1,6 +1,7 @@
 ﻿using Realms;
 using SharpNotes.Models;
 using SharpNotes.Services;
+using SharpNotes.Views;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace SharpNotes.ViewModels
         public ICommand CreateNoteCommand { get; }
         public ICommand UpdateNoteCommand { get; }
         public ICommand DeleteNoteCommand { get; }
+
+        public ICommand AboutCommand { get; }
         public ICommand LogOutCommand { get; }
 
         public Note SelectedNote
@@ -41,6 +44,7 @@ namespace SharpNotes.ViewModels
             UpdateNoteCommand = new AsyncCommand<Note>(UpdateEntryCommandHandler);
             DeleteNoteCommand = new Command<Note>(DeleteNoteCommandHandler);
 
+            AboutCommand = new Command(AboutCommandHandler);
             LogOutCommand = new AsyncCommand(LogOutCommandHandler);
         }
 
@@ -69,6 +73,9 @@ namespace SharpNotes.ViewModels
         {
             _realm.Write(() => _realm.Remove(note));
         }
+
+
+        private async void AboutCommandHandler() => await Application.Current.MainPage.Navigation.PushAsync(new AboutPage());
 
         private async Task LogOutCommandHandler()
         {
