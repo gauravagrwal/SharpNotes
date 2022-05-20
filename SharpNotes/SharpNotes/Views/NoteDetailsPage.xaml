@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SharpNotes.Views.NoteDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:SharpNotes.ViewModels"
+    Title="Sharp Notes"
+    x:DataType="vm:NoteDetailsViewModel">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SaveNoteCommand}" Text="Save" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Entry
+            FontSize="Title"
+            Placeholder="Title"
+            Text="{Binding Note.Title}" />
+        <Editor
+            FontSize="Body"
+            Placeholder="Note"
+            Text="{Binding Note.Body}"
+            VerticalOptions="FillAndExpand" />
+
+    </StackLayout>
+</ContentPage>

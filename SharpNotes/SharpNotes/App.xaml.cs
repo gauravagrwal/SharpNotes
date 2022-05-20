@@ -1,28 +1,19 @@
-﻿using System;
+﻿using SharpNotes.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SharpNotes
 {
     public partial class App : Application
     {
-        public App()
-        {
-            InitializeComponent();
-
-            MainPage = new MainPage();
-        }
+        public App() => InitializeComponent();
 
         protected override void OnStart()
         {
+            MainPage = new NavigationPage(new NotesPage());
         }
 
-        protected override void OnSleep()
-        {
-        }
+        protected override void OnSleep() { }
 
-        protected override void OnResume()
-        {
-        }
+        protected override void OnResume() { }
     }
 }

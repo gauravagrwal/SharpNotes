@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SharpNotes.Views.NotesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:SharpNotes.ViewModels"
+    x:Name="Notes"
+    Title="Sharp Notes">
+
+    <ContentPage.BindingContext>
+        <vm:NotesViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CreateNoteCommand}" Text="Add" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ListView
+            ItemsSource="{Binding Notes}"
+            SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
+            SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Body}" Text="{Binding Title}">
+                        <TextCell.ContextActions>
+                            <MenuItem
+                                Command="{Binding Path=BindingContext.DeleteNoteCommand, Source={x:Reference Notes}}"
+                                CommandParameter="{Binding .}"
+                                IsDestructive="True"
+                                Text="Delete" />
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
