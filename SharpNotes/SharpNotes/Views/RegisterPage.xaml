@@ -3,6 +3,7 @@
     x:Class="SharpNotes.Views.RegisterPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
     xmlns:vm="clr-namespace:SharpNotes.ViewModels"
     NavigationPage.HasNavigationBar="False">
 
@@ -13,6 +14,13 @@
     <StackLayout Margin="20">
 
         <StackLayout VerticalOptions="Start">
+            <lottie:AnimationView
+                Animation="https://assets4.lottiefiles.com/packages/lf20_bd2pqqcm.json"
+                AnimationSource="Url"
+                AutoPlay="True"
+                HeightRequest="250"
+                RepeatMode="Infinite" />
+
             <Label FontSize="Title" Text="Create Account" />
         </StackLayout>
 
