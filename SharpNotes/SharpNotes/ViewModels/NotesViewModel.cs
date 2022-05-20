@@ -19,6 +19,7 @@ namespace SharpNotes.ViewModels
         public ICommand CreateNoteCommand { get; }
         public ICommand UpdateNoteCommand { get; }
         public ICommand DeleteNoteCommand { get; }
+        public ICommand LogOutCommand { get; }
 
         public Note SelectedNote
         {
@@ -39,6 +40,8 @@ namespace SharpNotes.ViewModels
             CreateNoteCommand = new AsyncCommand(CreateEntryCommandHandler);
             UpdateNoteCommand = new AsyncCommand<Note>(UpdateEntryCommandHandler);
             DeleteNoteCommand = new Command<Note>(DeleteNoteCommandHandler);
+
+            LogOutCommand = new AsyncCommand(LogOutCommandHandler);
         }
 
         private async Task CreateEntryCommandHandler()
@@ -65,6 +68,22 @@ namespace SharpNotes.ViewModels
         private void DeleteNoteCommandHandler(Note note)
         {
             _realm.Write(() => _realm.Remove(note));
+        }
+
+        private async Task LogOutCommandHandler()
+        {
+            try
+            {
+                if (App.RealmApp.CurrentUser != null)
+                {
+                    await App.RealmApp.CurrentUser.LogOutAsync();
+                    await NavigationService.NavigateTo(new LogInViewModel());
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlertService.ShowAlert("Error", ex.Message);
+            }
         }
     }
 }

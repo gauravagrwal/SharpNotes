@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SharpNotes.Views.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:SharpNotes.ViewModels"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="20">
+
+        <StackLayout VerticalOptions="Start">
+            <Label FontSize="Title" Text="Create Account" />
+        </StackLayout>
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Entry
+                Placeholder="Username"
+                ReturnType="Next"
+                Text="{Binding Username}" />
+
+            <Entry
+                IsPassword="True"
+                Placeholder="Password"
+                ReturnType="Next"
+                Text="{Binding Password}" />
+
+            <Entry
+                IsPassword="True"
+                Placeholder="Confirm Password"
+                ReturnType="Done"
+                Text="{Binding ConfirmPassword}" />
+        </StackLayout>
+
+        <StackLayout VerticalOptions="End">
+            <Button Command="{Binding RegisterCommand}" Text="Register" />
+
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Already have an account? " />
+                        <Span FontAttributes="Bold" Text="LogIn" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogInCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

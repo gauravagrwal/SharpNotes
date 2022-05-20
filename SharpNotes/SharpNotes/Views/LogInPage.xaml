@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SharpNotes.Views.LogInPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:SharpNotes.ViewModels"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:LogInViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="20">
+
+        <StackLayout VerticalOptions="Start">
+            <Label FontSize="Title" Text="Welcome" />
+        </StackLayout>
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Entry
+                Placeholder="Username"
+                ReturnType="Next"
+                Text="{Binding Username}" />
+
+            <Entry
+                IsPassword="True"
+                Placeholder="Password"
+                ReturnType="Done"
+                Text="{Binding Password}" />
+        </StackLayout>
+
+        <StackLayout VerticalOptions="End">
+            <Button Command="{Binding LogInCommand}" Text="LogIn" />
+
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an account? " />
+                        <Span FontAttributes="Bold" Text="Register" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegisterCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

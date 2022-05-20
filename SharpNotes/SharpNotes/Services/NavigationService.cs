@@ -22,6 +22,8 @@ namespace SharpNotes.Services
         {
             return viewModel switch
             {
+                LogInViewModel => new LogInPage(),
+                RegisterViewModel => new RegisterPage(),
                 NotesViewModel => new NotesPage(),
                 NoteDetailsViewModel => new NoteDetailsPage(),
                 _ => throw new ArgumentException("The input ViewModel is not accepted"),
