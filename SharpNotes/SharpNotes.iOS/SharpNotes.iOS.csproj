@@ -123,6 +123,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Plugin.MaterialDesignControls">
+      <Version>1.11.2</Version>
+    </PackageReference>
     <PackageReference Include="Realm">
       <Version>10.13.0</Version>
     </PackageReference>
