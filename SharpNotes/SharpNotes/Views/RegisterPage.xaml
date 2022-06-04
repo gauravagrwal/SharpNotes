@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
     xmlns:vm="clr-namespace:SharpNotes.ViewModels"
     NavigationPage.HasNavigationBar="False">
 
@@ -11,7 +12,7 @@
         <vm:RegisterViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout Margin="20">
+    <StackLayout Margin="30">
 
         <StackLayout VerticalOptions="Start">
             <lottie:AnimationView
@@ -21,42 +22,58 @@
                 HeightRequest="250"
                 RepeatMode="Infinite" />
 
-            <Label FontSize="Title" Text="Create Account" />
+            <material:MaterialLabel
+                CharacterSpacing="0.5"
+                FontAttributes="Bold"
+                FontSize="40"
+                Text="Create Account" />
         </StackLayout>
 
-        <StackLayout VerticalOptions="CenterAndExpand">
-            <Entry
+        <StackLayout Spacing="25" VerticalOptions="CenterAndExpand">
+            <material:MaterialEntry
                 Placeholder="Username"
                 ReturnType="Next"
-                Text="{Binding Username}" />
+                TabIndex="1"
+                Text="{Binding Username}"
+                Type="Lined" />
 
-            <Entry
+            <material:MaterialEntry
                 IsPassword="True"
                 Placeholder="Password"
                 ReturnType="Next"
-                Text="{Binding Password}" />
+                TabIndex="2"
+                Text="{Binding Password}"
+                Type="Lined" />
 
-            <Entry
+            <material:MaterialEntry
                 IsPassword="True"
                 Placeholder="Confirm Password"
                 ReturnType="Done"
-                Text="{Binding ConfirmPassword}" />
+                TabIndex="3"
+                Text="{Binding ConfirmPassword}"
+                Type="Lined" />
         </StackLayout>
 
         <StackLayout VerticalOptions="End">
-            <Button Command="{Binding RegisterCommand}" Text="Register" />
+            <Button
+                Command="{Binding RegisterCommand}"
+                CornerRadius="10"
+                Text="Register" />
 
-            <Label HorizontalOptions="Center">
+            <material:MaterialLabel Padding="0,20,0,0" HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Already have an account? " />
-                        <Span FontAttributes="Bold" Text="LogIn" />
+                        <Span FontSize="Body" Text="Already have an account? " />
+                        <Span
+                            FontAttributes="Bold"
+                            FontSize="Body"
+                            Text="Log In" />
                     </FormattedString>
                 </Label.FormattedText>
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding LogInCommand}" />
                 </Label.GestureRecognizers>
-            </Label>
+            </material:MaterialLabel>
         </StackLayout>
 
     </StackLayout>

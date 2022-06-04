@@ -3,6 +3,7 @@
     x:Class="SharpNotes.Views.NotesPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
     xmlns:vm="clr-namespace:SharpNotes.ViewModels"
     x:Name="Notes"
     Title="Sharp Notes">
@@ -12,29 +13,66 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding CreateNoteCommand}" Text="Add" />
-        <ToolbarItem Command="{Binding AboutCommand}" Text="About" />
-        <ToolbarItem Command="{Binding LogOutCommand}" Text="Log Out" />
+        <ToolbarItem
+            Command="{Binding AboutCommand}"
+            Order="Secondary"
+            Text="About" />
+        <ToolbarItem
+            Command="{Binding LogOutCommand}"
+            Order="Secondary"
+            Text="Log Out" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <ListView
+    <RelativeLayout Margin="15,10">
+        <CollectionView
             ItemsSource="{Binding Notes}"
             SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
             SelectionMode="Single">
-            <ListView.ItemTemplate>
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Detail="{Binding Body}" Text="{Binding Title}">
-                        <TextCell.ContextActions>
-                            <MenuItem
-                                Command="{Binding Path=BindingContext.DeleteNoteCommand, Source={x:Reference Notes}}"
-                                CommandParameter="{Binding .}"
-                                IsDestructive="True"
-                                Text="Delete" />
-                        </TextCell.ContextActions>
-                    </TextCell>
+                    <StackLayout Spacing="0">
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    Command="{Binding Path=BindingContext.DeleteNoteCommand, Source={x:Reference Notes}}"
+                                    CommandParameter="{Binding .}"
+                                    Text="Delete" />
+                            </SwipeView.RightItems>
+
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <material:MaterialLabel
+                                    Grid.Row="0"
+                                    FontSize="Title"
+                                    Text="{Binding Title}" />
+
+                                <material:MaterialLabel
+                                    Grid.Row="1"
+                                    FontSize="Body"
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding Body}" />
+                            </Grid>
+                        </SwipeView>
+                        <material:MaterialDivider />
+                    </StackLayout>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <material:MaterialFloatingButton
+            Command="{Binding CreateNoteCommand}"
+            HasShadow="False"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                              Property=Width,
+                                                              Constant=-70}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                              Property=Height,
+                                                              Constant=-70}" />
+    </RelativeLayout>
+
 </ContentPage>

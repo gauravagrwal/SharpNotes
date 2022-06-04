@@ -3,25 +3,22 @@
     x:Class="SharpNotes.Views.AboutPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
     Title="Sharp Notes">
 
-    <StackLayout Margin="40">
-
-        <StackLayout VerticalOptions="Start" />
+    <StackLayout Margin="30">
 
         <StackLayout VerticalOptions="CenterAndExpand">
-            <Label
+            <material:MaterialLabel
                 x:Name="AppName"
                 FontSize="Title"
                 HorizontalOptions="Center" />
 
-            <Label
+            <material:MaterialLabel
                 x:Name="AppVersion"
                 FontSize="Subtitle"
                 HorizontalOptions="Center" />
         </StackLayout>
-
-        <StackLayout VerticalOptions="End" />
 
     </StackLayout>
 

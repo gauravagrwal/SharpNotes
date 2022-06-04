@@ -3,6 +3,7 @@
     x:Class="SharpNotes.Views.NoteDetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
     xmlns:vm="clr-namespace:SharpNotes.ViewModels"
     Title="Sharp Notes"
     x:DataType="vm:NoteDetailsViewModel">
@@ -11,14 +12,20 @@
         <ToolbarItem Command="{Binding SaveNoteCommand}" Text="Save" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <Entry
-            FontSize="Title"
+    <StackLayout Margin="15,10">
+
+        <material:MaterialEntry
+            Padding="10"
+            FontSize="30"
             Placeholder="Title"
+            ReturnType="Next"
+            TabIndex="1"
             Text="{Binding Note.Title}" />
-        <Editor
-            FontSize="Body"
+
+        <material:MaterialEditor
+            AutoSize="TextChanges"
             Placeholder="Note"
+            TabIndex="2"
             Text="{Binding Note.Body}"
             VerticalOptions="FillAndExpand" />
 
