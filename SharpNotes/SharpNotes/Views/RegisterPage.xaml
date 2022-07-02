@@ -31,6 +31,7 @@
 
         <StackLayout Spacing="25" VerticalOptions="CenterAndExpand">
             <material:MaterialEntry
+                LeadingIcon="ic_user.png"
                 Placeholder="Username"
                 ReturnType="Next"
                 TabIndex="1"
@@ -38,17 +39,23 @@
                 Type="Lined" />
 
             <material:MaterialEntry
+                HidePasswordIcon="ic_closed_eye.png"
                 IsPassword="True"
+                LeadingIcon="ic_password.png"
                 Placeholder="Password"
                 ReturnType="Next"
+                ShowPasswordIcon="ic_eye.png"
                 TabIndex="2"
                 Text="{Binding Password}"
                 Type="Lined" />
 
             <material:MaterialEntry
+                HidePasswordIcon="ic_closed_eye.png"
                 IsPassword="True"
+                LeadingIcon="ic_password.png"
                 Placeholder="Confirm Password"
                 ReturnType="Done"
+                ShowPasswordIcon="ic_eye.png"
                 TabIndex="3"
                 Text="{Binding ConfirmPassword}"
                 Type="Lined" />

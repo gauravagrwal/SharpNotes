@@ -67,6 +67,7 @@
         <material:MaterialFloatingButton
             Command="{Binding CreateNoteCommand}"
             HasShadow="False"
+            Icon="ic_add.png"
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                               Property=Width,
                                                               Constant=-70}"
