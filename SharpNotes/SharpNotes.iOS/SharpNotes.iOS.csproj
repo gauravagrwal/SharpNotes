@@ -127,7 +127,7 @@
       <Version>1.11.2</Version>
     </PackageReference>
     <PackageReference Include="Realm">
-      <Version>10.14.0</Version>
+      <Version>10.15.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515+946-sha.94acebbb4-azdo.6439792" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
