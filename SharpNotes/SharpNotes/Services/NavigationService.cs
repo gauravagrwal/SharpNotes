@@ -14,7 +14,7 @@ namespace SharpNotes.Services
         {
             if (Navigation == null)
             {
-                throw new InvalidOperationException("Page does not support navigation");
+                throw new InvalidOperationException("page does not support navigation");
             }
         }
 
@@ -26,7 +26,7 @@ namespace SharpNotes.Services
                 RegisterViewModel => new RegisterPage(),
                 NotesViewModel => new NotesPage(),
                 NoteDetailsViewModel => new NoteDetailsPage(),
-                _ => throw new ArgumentException("The input ViewModel is not accepted"),
+                _ => throw new ArgumentException($"The {viewModel} is not accepted"),
             };
         }
         
