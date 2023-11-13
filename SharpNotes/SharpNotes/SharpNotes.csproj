@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
-    <PackageReference Include="Plugin.MaterialDesignControls" Version="3.0.0" />
+    <PackageReference Include="Plugin.MaterialDesignControls" Version="3.0.4" />
     <PackageReference Include="Realm" Version="11.5.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />
