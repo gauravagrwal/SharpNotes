@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.MaterialDesignControls">
-      <Version>3.0.0</Version>
+      <Version>3.0.5</Version>
     </PackageReference>
     <PackageReference Include="Realm">
       <Version>11.5.0</Version>
